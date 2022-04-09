@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Payback_S1" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="testOptions.TestngListeners"/>
+    </listeners>
+    <test name="Payback_S1_T1_HighPriority">
+        <classes>
+            <class name="testOptions.TestRunner1"/>
+        </classes>
+    </test>
+    <test name="Payback_S1_T2_MediumLowPriority">
+        <classes>
+            <class name="testOptions.TestRunner2"/>
+        </classes>
+    </test>
+</suite>
