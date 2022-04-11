@@ -5,7 +5,7 @@ import io.cucumber.testng.*;
 @CucumberOptions(
         features = {"src/test/java/features"},
         glue = {"stepDefinitions"},
-        tags = "@MediumPriority or @LowPriority",
+        tags = "@TestB",
         monochrome = true
 )
 public class TestRunner2 extends AbstractTestNGCucumberTests {

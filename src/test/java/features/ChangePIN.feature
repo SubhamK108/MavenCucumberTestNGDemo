@@ -5,6 +5,7 @@ Feature: Functionalities in the ChangePIN page.
     And The user is logged in using valid credentials
     And The user navigates to the ChangePIN page
 
+  @HighPriority
   Scenario Outline: The OLD PIN, NEW PIN and CONFIRM PIN fields don't accept any input other than 4-digit numbers.
     When The user is in the ChangePIN page
     Then Provide invalid data for OLD PIN, NEW PIN and CONFIRM PIN fields from "Invalid_PINS" sheet and row <rowNumber>
@@ -15,6 +16,7 @@ Feature: Functionalities in the ChangePIN page.
       | 2         |
       | 3         |
 
+  @HighPriority
   Scenario Outline: The OLD PIN, NEW PIN and CONFIRM PIN fields accept any 4-digit number as input.
     When The user is in the ChangePIN page
     Then Provide valid data for OLD PIN, NEW PIN and CONFIRM PIN fields from "Valid_PINS" sheet and row <rowNumber>
