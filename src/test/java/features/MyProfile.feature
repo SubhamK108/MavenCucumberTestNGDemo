@@ -30,17 +30,17 @@ Feature: Functionalities in the MyProfile page.
       | 2         |
       | 3         |
 
-  @HighPriority @TestA
+  @HighPriority
   Scenario: The drop-down lists for STATE and CITY selections displays all the available options.
     When The user is in the MyProfile page
     Then Open the drop-down lists of STATE and CITY fields and check for values
 
-  @LowPriority @Test
+  @LowPriority
   Scenario: The OTHER DETAILS section/text is clickable and on-click it displays additional fields.
     When The user is in the MyProfile page
     Then Click on the OTHER DETAILS section or text
 
-  @LowPriority @Test
+  @LowPriority
   Scenario: The drop down list for GENDER and MARITAL STATUS selections display all the available options.
     When The user is in the MyProfile page
     Then Open the drop-down lists of GENDER and MARITAL STATUS fields and check for values
