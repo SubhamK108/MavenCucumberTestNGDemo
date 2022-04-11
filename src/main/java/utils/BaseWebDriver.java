@@ -12,11 +12,11 @@ public class BaseWebDriver {
     public WebDriver webDriver;
     private Properties properties;
 
-    public static void setCurrentScenario(String currentScenario) {
+    public static synchronized void setCurrentScenario(String currentScenario) {
         BaseWebDriver.currentScenario.set(currentScenario);
     }
 
-    public static String getCurrentScenario() {
+    public static synchronized String getCurrentScenario() {
         return currentScenario.get();
     }
 

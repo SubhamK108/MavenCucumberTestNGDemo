@@ -8,20 +8,23 @@ import utils.*;
 public class TestngListeners implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTestManager.startTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
+        String testName = BaseWebDriver.getCurrentScenario();
+        ExtentTestManager.makeTest(testName);
         System.out.println("SCENARIO PASSED :D");
-        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + BaseWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + testName);
         ExtentTestManager.getTest().log(Status.PASS, "Scenario Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
+        String testName = BaseWebDriver.getCurrentScenario();
+        ExtentTestManager.makeTest(testName);
         System.out.println("SCENARIO FAILED :(");
-        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + BaseWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + testName);
         ExtentTestManager.getTest().log(Status.FAIL, "Scenario Failed");
         try {
             String ssPath = ScreenshotUtil.getLastScreenshotFilename();
@@ -38,8 +41,10 @@ public class TestngListeners implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
+        String testName = BaseWebDriver.getCurrentScenario();
+        ExtentTestManager.makeTest(testName);
         System.out.println("SCENARIO SKIPPED :|");
-        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + BaseWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + testName);
         ExtentTestManager.getTest().log(Status.SKIP, "Scenario Skipped");
     }
 

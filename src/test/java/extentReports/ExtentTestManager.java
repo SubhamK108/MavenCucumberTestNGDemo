@@ -18,7 +18,7 @@ public class ExtentTestManager {
         extent.flush();
     }
 
-    public static synchronized void startTest(String testName) {
+    public static synchronized void makeTest(String testName) {
         ExtentTest test = extent.createTest(testName);
         extentTestMap.put((int) Thread.currentThread().getId(), test);
     }
