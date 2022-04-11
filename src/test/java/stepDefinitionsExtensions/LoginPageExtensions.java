@@ -27,7 +27,7 @@ public class LoginPageExtensions {
                 .build();
         action.perform();
         WebElement loginButton = loginPage.getLoginButton();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(120));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(600));
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='myprofile']/div[1]/h3[@class='pb-vert-tab-title']")));
