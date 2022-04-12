@@ -17,6 +17,17 @@ public class TestngListeners implements ITestListener {
         System.out.println("SCENARIO PASSED :D");
         ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + testName);
         ExtentTestManager.getTest().log(Status.PASS, "Scenario Passed");
+        try {
+            String ssPath = ScreenshotUtil.getLastScreenshotFilename();
+            ExtentTestManager.getTest().log(
+                    Status.PASS,
+                    "Screenshot of the passed scenario",
+                    MediaEntityBuilder.createScreenCaptureFromPath(ssPath).build()
+            );
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error while taking/saving screenshot!");
+        }
     }
 
     @Override
@@ -26,6 +37,7 @@ public class TestngListeners implements ITestListener {
         System.out.println("SCENARIO FAILED :(");
         ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + testName);
         ExtentTestManager.getTest().log(Status.FAIL, "Scenario Failed");
+        ExtentTestManager.getTest().log(Status.FAIL, result.getThrowable());
         try {
             String ssPath = ScreenshotUtil.getLastScreenshotFilename();
             ExtentTestManager.getTest().log(
